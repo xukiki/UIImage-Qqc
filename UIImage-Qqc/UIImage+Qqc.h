@@ -10,15 +10,7 @@
 
 @interface UIImage (Qqc)
 
-
-/**
- *  从某个bundle中获取图片
- *
- *  @param strFullName   图片全名
- *  @param strBundleName bundle 的名称（不带.bundle后缀）
- *
- *  @return 图片对象
- */
+//从某个bundle中，通过名字,从文件中获取image
 + (UIImage *)imageFromBundleWithName:(NSString *)strFullName bundleName:(NSString*)strBundleName;
 
 @end

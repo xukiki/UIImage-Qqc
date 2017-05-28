@@ -22,44 +22,34 @@
         
         if ([UIScreen mainScreen].scale == 2) {
             strName = [strName stringByAppendingString:@"@2x"];
-        }
-        else if([UIScreen mainScreen].scale == 3)
-        {
+        }else if([UIScreen mainScreen].scale == 3){
             strName = [strName stringByAppendingString:@"@3x"];
         }
         
         strType = [strFullName substringFromIndex:rang.location+1];
-    }
-    else
-    {
+    }else{
         strName = strFullName;
         strType = @"png";
     }
     
     NSBundle* bundle = nil;
     NSString* strBundlePath = nil;
-    if (strBundleName && ![strBundleName isEqualToString:@""])
-    {
+    if (strBundleName && ![strBundleName isEqualToString:@""]){
         strBundlePath = [[NSBundle mainBundle] pathForResource:strBundleName ofType:@"bundle"];
     }
     
-    if (nil == strBundlePath)
-    {
+    if (nil == strBundlePath){
         bundle = [NSBundle mainBundle];
-    }
-    else
-    {
+    }else{
         bundle = [NSBundle bundleWithPath:strBundlePath];
     }
     
-    if (bundle)
-    {
+    if (bundle){
         NSString* strImgPath = [bundle pathForResource:strName ofType:strType];
         imageRet = [UIImage imageWithContentsOfFile:strImgPath];
     }
     
     return imageRet;
-    
 }
 
 @end
